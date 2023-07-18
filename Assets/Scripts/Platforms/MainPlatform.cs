@@ -2,17 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainPlatform : MonoBehaviour
+public class MainPlatform : Platform
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Transform holdingPoint;
+    [SerializeField] private Transform ballPrefab;
+
+
+    private void Start()
     {
-        
+        SetUpBall();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        touchPosition = inputManager.ActiveTouchPosition;
+        Move();
+    }
+
+
+    /// <summary>
+    /// Spawn the ball at the start of the game
+    /// </summary>
+    private void SetUpBall()
+    {
+        Instantiate(ballPrefab, holdingPoint);
+        ballPrefab.localPosition = Vector2.zero;
     }
 }
