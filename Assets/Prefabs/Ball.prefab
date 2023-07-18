@@ -50,7 +50,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -60,7 +60,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &2893664532337352352
 CircleCollider2D:
@@ -71,7 +71,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1731593232362622455}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 36b37f0d74b76064c8a8c013a6144f90, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

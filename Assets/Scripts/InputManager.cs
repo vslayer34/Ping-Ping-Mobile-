@@ -34,12 +34,14 @@ public class InputManager : MonoBehaviour
         for (int i = 0; i < activeTouches.Count; i++)
         {
             UnityEngine.InputSystem.TouchPhase activePhase;
+            
             // get the finger index and the coresponting position in the world
             var touch = activeTouches[i].screenPosition;
             activePhase = activeTouches[i].phase;
 
             // check if the finger is lifted or still touching the screen
             IsFingerLifted = (activePhase == UnityEngine.InputSystem.TouchPhase.Ended) ? true : false;
+
 
             Vector3 screenPosition = new Vector3(touch.x, touch.y, 0.0f);
             Vector3 worldPosition =  mainCamera.ScreenToWorldPoint(screenPosition);
