@@ -1,0 +1,51 @@
+{
+    "name": "PlatformAction",
+    "maps": [
+        {
+            "name": "Platform",
+            "id": "c6db4ffd-5110-4c47-9585-e312f266a621",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "772bcb03-30ff-461e-8221-618d2c194493",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "75e1f45f-4632-4c02-bf49-773e4176cbb1",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "New control scheme",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "New control scheme",
+            "bindingGroup": "New control scheme",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": true,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<AndroidGamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

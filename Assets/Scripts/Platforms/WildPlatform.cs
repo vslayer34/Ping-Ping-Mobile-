@@ -4,10 +4,30 @@ using UnityEngine;
 
 public class WildPlatform : Platform
 {
+    private void Awake()
+    {
+        platformAction = new PlatformAction();
+        instanceNumber++;
+    }
+
+    private void Start()
+    {
+        platformAction.Enable();
+        Debug.Log(instanceNumber.ToString());
+    }
+
     private void Update()
     {
-        touchPosition = inputManager.ActiveTouchPosition;
+        
+        Debug.Log(JoystickDirectionY);
+        //touchPosition = inputManager.ActiveTouchPosition;
+        //Debug.Log($"{gameObject.name}: current moving Vector: {JoyStickDirectionNormalized}");
+        Move(JoystickDirectionY);
+    }
 
-        Move();
+
+    private void OnDisable()
+    {
+        platformAction?.Disable();
     }
 }

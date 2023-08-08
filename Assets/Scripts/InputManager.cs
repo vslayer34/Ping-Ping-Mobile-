@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour
     /// </summary>
     public bool IsActiveTouch { get; private set; }
     public bool IsFingerLifted { get; private set; }
+    public int FingerIndex { get; private set; }
 
     private void OnEnable()
     {
@@ -30,17 +31,31 @@ public class InputManager : MonoBehaviour
 
     private void Update()
     {
+        
         var activeTouches = UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches;
         for (int i = 0; i < activeTouches.Count; i++)
         {
             UnityEngine.InputSystem.TouchPhase activePhase;
-            
+
             // get the finger index and the coresponting position in the world
             var touch = activeTouches[i].screenPosition;
-            activePhase = activeTouches[i].phase;
+            if (i > 0)
+            {
+                activePhase = activeTouches[i - 1].phase;
+                IsFingerLifted = true;
+            }
+            else
+            {
+                activePhase = activeTouches[0].phase;
+            }
+
+            //Debug.Log(i);
+
+
+            //Debug.Log(activeTouches[i].finger.index);
 
             // check if the finger is lifted or still touching the screen
-            IsFingerLifted = (activePhase == UnityEngine.InputSystem.TouchPhase.Ended) ? true : false;
+            IsFingerLifted = (activePhase == UnityEngine.InputSystem.TouchPhase.Ended || i != 0) ? true : false;
 
 
             Vector3 screenPosition = new Vector3(touch.x, touch.y, 0.0f);
@@ -51,16 +66,17 @@ public class InputManager : MonoBehaviour
             //Debug.Log($"{activeTouches[i].finger.index} : {worldPosition}");
 
             // and added to the touch dictionary
-            /*
+            
             if (!touchsDict.TryAdd(i, worldPosition))
             {
                 touchsDict[i] = worldPosition;
             }
-            */
+            
         }
 
-            IsActiveTouch = UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches.Count == 0 ? false : true;
+        IsActiveTouch = UnityEngine.InputSystem.EnhancedTouch.Touch.activeTouches.Count == 0 ? false : true;
         // set a boolean whether the user is touching the screen or not
+        
     }
 
 

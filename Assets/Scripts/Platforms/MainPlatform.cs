@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MainPlatform : Platform
@@ -18,7 +16,7 @@ public class MainPlatform : Platform
     private void Update()
     {
         touchPosition = inputManager.ActiveTouchPosition;
-        Move();
+        Move(JoystickDirectionY);
     }
 
 
@@ -32,6 +30,9 @@ public class MainPlatform : Platform
     }
 
 
+    /// <summary>
+    /// Release the ball from the platform and launch it
+    /// </summary>
     private void LaunchTheBall()
     {
         spawnedBall.TryGetComponent(out BallBehaviour ballScript);

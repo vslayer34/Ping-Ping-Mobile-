@@ -4,6 +4,9 @@ public class BallBehaviour : MonoBehaviour
 {
     private Rigidbody2D rb;
 
+    [SerializeField]
+    private float bounceModifier;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

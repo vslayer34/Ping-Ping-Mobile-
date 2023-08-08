@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem.OnScreen;
 
 public abstract class Platform : MonoBehaviour
 {
@@ -8,10 +9,29 @@ public abstract class Platform : MonoBehaviour
     // a variable to store the touch position
     protected Vector3 touchPosition;
 
+    // screen joystick 
+    [SerializeField]
+    protected Joystick _joyStickDirection;
+
+    [SerializeField]
+    protected float speed;
+
     // determine if the platform is activly touched or not
     protected bool isActive;
 
     protected float screenLimits = 4.0f;
+
+    protected PlatformAction platformAction;
+
+    protected static int instanceNumber;
+
+
+    //----------------------------------------------------------------------------------
+    /// <summary>
+    /// get the joystick y direction normalized
+    /// </summary>
+    public float JoystickDirectionY { get => _joyStickDirection.Direction.y; }
+
 
     /// <summary>
     /// get if the finger is touching the platform or not
@@ -19,6 +39,9 @@ public abstract class Platform : MonoBehaviour
     /// </summary>
     protected void IsPlatformActiveNow()
     {
+        
+
+        /*
         // the detection limit of the platform position and the touch position
         float detectionLimitX = 1.5f;
         float detectionLimitY = 0.4f;
@@ -27,6 +50,7 @@ public abstract class Platform : MonoBehaviour
             && inputManager.IsActiveTouch && Mathf.Abs((touchPosition.y - transform.position.y)) < detectionLimitY)
         {
             isActive = true;
+            Debug.Log($"{gameObject.name} is Active");
         }
         
         // keep the platform active during the touch phase
@@ -34,9 +58,12 @@ public abstract class Platform : MonoBehaviour
         if (inputManager.IsFingerLifted)
         {
             isActive = false;
+            Debug.Log($"{gameObject.name} is Inactive");
         }
+        */
     }
-
+    
+    /*
     /// <summary>
     /// The platform follows the touch position
     /// </summary>
@@ -49,6 +76,7 @@ public abstract class Platform : MonoBehaviour
         // and if so move it with the finger
         if (isActive)
         {
+            
             Vector3 newPosition;
             // prevent it from going over the border
             if (touchPosition.y >= screenLimits)
@@ -65,6 +93,47 @@ public abstract class Platform : MonoBehaviour
             }
             
             transform.position = newPosition;
+            
+
+            
+            
+            //foreach (var slot in InputManager.touchsDict)
+            //{
+            //    int i = 0;
+            //    Debug.Log($"Loop iteration: {i}");
+            //    i++;
+
+            //    Vector3 newPosition;
+            //    // prevent it from going over the border
+            //    if (slot.Value.y >= screenLimits)
+            //    {
+            //        newPosition = new Vector2(transform.position.x, screenLimits);
+            //    }
+            //    else if (slot.Value.y <= -screenLimits)
+            //    {
+            //        newPosition = new Vector2(transform.position.x, -screenLimits);
+            //    }
+            //    else
+            //    {
+            //        newPosition = new Vector2(transform.position.x, slot.Value.y);
+            //    }
+
+            //    transform.position = newPosition;
+                
+            //}
+            
+            
         }
     }
+    */
+
+
+
+    protected void Move(float inputDirection)
+    {
+        float movementDirection = inputDirection * Time.deltaTime * speed;
+        Vector3 movementVector = new Vector3(0.0f, movementDirection, 0.0f);
+        transform.Translate(movementVector);
+    }
+    
 }
