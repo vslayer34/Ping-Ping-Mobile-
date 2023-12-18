@@ -9,6 +9,7 @@ public class MainPlatform : Platform
 
     private void Start()
     {
+        //_rb = GetComponent<Rigidbody2D>();
         SetUpBall();
         Invoke("LaunchTheBall", 1.0f);
     }
@@ -17,6 +18,11 @@ public class MainPlatform : Platform
     {
         touchPosition = inputManager.ActiveTouchPosition;
         Move(JoystickDirectionY);
+    }
+
+    private void FixedUpdate()
+    {
+        //Move(JoystickDirectionY);
     }
 
 

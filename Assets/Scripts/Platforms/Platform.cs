@@ -25,6 +25,8 @@ public abstract class Platform : MonoBehaviour
 
     protected static int instanceNumber;
 
+    protected static Rigidbody2D _rb;
+
 
     //----------------------------------------------------------------------------------
     /// <summary>
@@ -132,8 +134,11 @@ public abstract class Platform : MonoBehaviour
     protected void Move(float inputDirection)
     {
         float movementDirection = inputDirection * Time.deltaTime * speed;
-        Vector3 movementVector = new Vector3(0.0f, movementDirection, 0.0f);
+        Vector2 movementVector = new Vector3(0.0f, movementDirection, 0.0f);
         transform.Translate(movementVector);
+
+        //_rb.position += movementVector;
+        //Debug.Log("I'm Being called");
     }
     
 }

@@ -12,17 +12,23 @@ public class WildPlatform : Platform
 
     private void Start()
     {
+        //_rb = GetComponent<Rigidbody2D>();
         platformAction.Enable();
         Debug.Log(instanceNumber.ToString());
     }
 
     private void Update()
     {
-        
         Debug.Log(JoystickDirectionY);
         //touchPosition = inputManager.ActiveTouchPosition;
         //Debug.Log($"{gameObject.name}: current moving Vector: {JoyStickDirectionNormalized}");
         Move(JoystickDirectionY);
+    }
+
+
+    private void FixedUpdate()
+    {
+        //Move(JoystickDirectionY);
     }
 
 
