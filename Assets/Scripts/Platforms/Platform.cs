@@ -6,6 +6,9 @@ public abstract class Platform : MonoBehaviour
     // referance to the input manager
     [SerializeField] protected InputManager inputManager;
 
+    [SerializeField, Tooltip("Reference to the game data")]
+    protected SO_ManagerData _sessionData;
+
     // a variable to store the touch position
     protected Vector3 touchPosition;
 
@@ -130,12 +133,30 @@ public abstract class Platform : MonoBehaviour
     */
 
 
-
+    /// <summary>
+    /// Takes the input direction and moves the platform accordingly
+    /// </summary>
+    /// <param name="inputDirection"></param>
     protected void Move(float inputDirection)
     {
         float movementDirection = inputDirection * Time.deltaTime * speed;
         Vector2 movementVector = new Vector3(0.0f, movementDirection, 0.0f);
-        transform.Translate(movementVector);
+
+        // The -1 is to make for the movment limit in the negative y axis
+
+        if (transform.position.y > _sessionData.movementLimit)
+        {
+            transform.position = new Vector3(transform.position.x, _sessionData.movementLimit, transform.position.z);
+        }
+        else if (transform.position.y < (_sessionData.movementLimit * -1))
+        {
+            transform.position = new Vector3(transform.position.x, _sessionData.movementLimit * -1, transform.position.z);
+        }
+        else
+        {
+            transform.Translate(movementVector);
+        }
+
 
         //_rb.position += movementVector;
         //Debug.Log("I'm Being called");
