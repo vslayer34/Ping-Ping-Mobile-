@@ -355,7 +355,7 @@ MonoBehaviour:
   inputManager: {fileID: 0}
   _sessionData: {fileID: 11400000, guid: 73788d809ad2bc64f8ae70f1a89dccb1, type: 2}
   _joyStickDirection: {fileID: 6621770190751219677}
-  speed: 8
+  speed: 15
 --- !u!1 &6039442027609105255
 GameObject:
   m_ObjectHideFlags: 0

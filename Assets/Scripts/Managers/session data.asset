@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9708163ff5d26584ebfaf29510d5e814, type: 3}
   m_Name: session data
   m_EditorClassIdentifier: 
-  movementLimit: 4.2
+  <WildPlatform>k__BackingField: {fileID: 5539865800168221559, guid: cdb5241b67258214fa665cabf87c4288, type: 3}
+  <PoolSize>k__BackingField: 5
+  <MovementLimit>k__BackingField: 4.2
+  <HorizontalSpeed>k__BackingField: 10

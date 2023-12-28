@@ -155,7 +155,7 @@ MonoBehaviour:
   inputManager: {fileID: 0}
   _sessionData: {fileID: 11400000, guid: 73788d809ad2bc64f8ae70f1a89dccb1, type: 2}
   _joyStickDirection: {fileID: 7862929071894370591}
-  speed: 8
+  speed: 15
   holdingPoint: {fileID: 4315883458330968285}
   ballPrefab: {fileID: 8858946231048867907, guid: 79456636c80cb5e4ba6a2b39be1aca6d, type: 3}
 --- !u!1 &8681055764110502224

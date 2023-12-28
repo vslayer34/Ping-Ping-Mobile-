@@ -14,12 +14,12 @@ public class WildPlatform : Platform
     {
         //_rb = GetComponent<Rigidbody2D>();
         platformAction.Enable();
-        Debug.Log(instanceNumber.ToString());
+        //Debug.Log(instanceNumber.ToString());
     }
 
     private void Update()
     {
-        Debug.Log(JoystickDirectionY);
+        //Debug.Log(JoystickDirectionY);
         //touchPosition = inputManager.ActiveTouchPosition;
         //Debug.Log($"{gameObject.name}: current moving Vector: {JoyStickDirectionNormalized}");
         Move(JoystickDirectionY);

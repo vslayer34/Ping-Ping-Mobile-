@@ -144,13 +144,13 @@ public abstract class Platform : MonoBehaviour
 
         // The -1 is to make for the movment limit in the negative y axis
 
-        if (transform.position.y > _sessionData.movementLimit)
+        if (transform.position.y > _sessionData.MovementLimit)
         {
-            transform.position = new Vector3(transform.position.x, _sessionData.movementLimit, transform.position.z);
+            transform.position = new Vector3(transform.position.x, _sessionData.MovementLimit, transform.position.z);
         }
-        else if (transform.position.y < (_sessionData.movementLimit * -1))
+        else if (transform.position.y < (_sessionData.MovementLimit * -1))
         {
-            transform.position = new Vector3(transform.position.x, _sessionData.movementLimit * -1, transform.position.z);
+            transform.position = new Vector3(transform.position.x, _sessionData.MovementLimit * -1, transform.position.z);
         }
         else
         {

@@ -12,6 +12,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        sessionData.movementLimit = _platformLimit;
+        sessionData.MovementLimit = _platformLimit;
     }
 }
