@@ -135,12 +135,14 @@ public abstract class Platform : MonoBehaviour
 
     /// <summary>
     /// Takes the input direction and moves the platform accordingly
+    /// Apply lateral speed to the platforms
     /// </summary>
     /// <param name="inputDirection"></param>
     protected void Move(float inputDirection)
     {
         float movementDirection = inputDirection * Time.deltaTime * speed;
-        Vector2 movementVector = new Vector3(0.0f, movementDirection, 0.0f);
+        float lateralSpeed = _sessionData.HorizontalSpeed * Time.deltaTime * -1.0f;
+        Vector2 movementVector = new Vector3(lateralSpeed, movementDirection, 0.0f);
 
         // The -1 is to make for the movment limit in the negative y axis
 
@@ -156,10 +158,5 @@ public abstract class Platform : MonoBehaviour
         {
             transform.Translate(movementVector);
         }
-
-
-        //_rb.position += movementVector;
-        //Debug.Log("I'm Being called");
     }
-    
 }

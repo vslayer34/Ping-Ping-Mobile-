@@ -15,4 +15,4 @@ MonoBehaviour:
   <WildPlatform>k__BackingField: {fileID: 5539865800168221559, guid: cdb5241b67258214fa665cabf87c4288, type: 3}
   <PoolSize>k__BackingField: 5
   <MovementLimit>k__BackingField: 4.2
-  <HorizontalSpeed>k__BackingField: 10
+  <HorizontalSpeed>k__BackingField: 1
