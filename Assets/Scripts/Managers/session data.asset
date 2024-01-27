@@ -16,3 +16,4 @@ MonoBehaviour:
   <PoolSize>k__BackingField: 5
   <MovementLimit>k__BackingField: 4.2
   <HorizontalSpeed>k__BackingField: 1
+  <TimeInterval>k__BackingField: 5

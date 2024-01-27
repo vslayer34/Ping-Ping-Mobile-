@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,11 +7,17 @@ public class SpawnPlatform : MonoBehaviour
     [SerializeField, Tooltip("Right spawn point")]
     private Transform _spawnPoint;
 
+
     [SerializeField, Tooltip("Left destruction point")]
     private Transform _destroyPoint;
 
+
     [SerializeField, Tooltip("Reference to the session data")]
     private SO_ManagerData _sessionData;
+
+    // reference to the spawned platform
+    private GameObject _newPlatform;
+
 
     /// <summary>
     /// List that contains pool of platforms
@@ -21,6 +28,11 @@ public class SpawnPlatform : MonoBehaviour
     {
         _platforms = new List<GameObject>();
         PopulatePlatformsPool();
+    }
+
+    private void Update()
+    {
+        
     }
 
     /// <summary>
@@ -58,5 +70,14 @@ public class SpawnPlatform : MonoBehaviour
         }
 
         return null;
+    }
+
+
+
+
+    private IEnumerator SpawnPoolEveryTime(float time)
+    {
+        _newPlatform = GetPlatform();
+        yield return new WaitForSeconds(time);
     }
 }
