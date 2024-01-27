@@ -50,6 +50,10 @@ public abstract class Platform : MonoBehaviour
         float lateralSpeed = _sessionData.HorizontalSpeed * Time.deltaTime * -1.0f;
         Vector2 movementVector = new Vector3(lateralSpeed, movementDirection, 0.0f);
 
+        // float movementDirection = inputDirection * Time.deltaTime * speed;
+        // // float lateralSpeed = _sessionData.HorizontalSpeed * Time.deltaTime * -1.0f;
+        // Vector2 movementVector = new Vector3(0.0f, movementDirection, 0.0f);
+
         // The -1 is to make for the movment limit in the negative y axis
 
         if (transform.position.y > _sessionData.MovementLimit)

@@ -18,6 +18,9 @@ public class SpawnPlatform : MonoBehaviour
     // reference to the spawned platform
     private GameObject _newPlatform;
 
+    // to determine when the platform is spawing
+    private bool _isSpawning;
+
 
     /// <summary>
     /// List that contains pool of platforms
@@ -32,7 +35,10 @@ public class SpawnPlatform : MonoBehaviour
 
     private void Update()
     {
-        
+        if (!_isSpawning)
+        {
+            StartCoroutine(SpawnPoolEveryTime(_sessionData.TimeInterval));
+        }
     }
 
     /// <summary>
@@ -77,7 +83,9 @@ public class SpawnPlatform : MonoBehaviour
 
     private IEnumerator SpawnPoolEveryTime(float time)
     {
+        _isSpawning = true;
         _newPlatform = GetPlatform();
         yield return new WaitForSeconds(time);
+        _isSpawning = false;
     }
 }
